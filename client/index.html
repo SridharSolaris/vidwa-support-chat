@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="theme-color" content="#6366f1">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&family=Rokkitt:wght@400;700&family=Audiowide&display=swap"
+        rel="stylesheet" />
+    <title>Vidwa - AI Customer Support</title>
+
+    <!-- Custom Scrollbar Styling -->
+    <style>
+        /* Prevent zoom on double tap for mobile */
+        * {
+            touch-action: manipulation;
+        }
+
+        /* Better mobile text selection */
+        input,
+        textarea {
+            touch-action: auto;
+            -webkit-user-select: text;
+            -moz-user-select: text;
+            -ms-user-select: text;
+            user-select: text;
+        }
+
+        /* Hide scrollbars on mobile for cleaner look */
+        @media (max-width: 768px) {
+            ::-webkit-scrollbar {
+                width: 4px;
+                height: 4px;
+            }
+        }
+
+        /* Custom scrollbar for webkit browsers (Chrome, Safari, Edge) */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+            border-radius: 4px;
+        }
+
+        .dark ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #6366f1, #8b5cf6);
+            border-radius: 4px;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(45deg, #4f46e5, #7c3aed);
+            box-shadow: 0 0 8px rgba(99, 102, 241, 0.4);
+        }
+
+        .dark ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #6366f1, #8b5cf6);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+
+        .dark ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(45deg, #4f46e5, #7c3aed);
+            box-shadow: 0 0 8px rgba(139, 92, 246, 0.5);
+        }
+
+        /* Firefox scrollbar styling */
+        html {
+            scrollbar-width: thin;
+            scrollbar-color: #6366f1 transparent;
+        }
+
+        .dark html {
+            scrollbar-color: #6366f1 transparent;
+        }
+
+        /* Custom scrollbar for specific containers */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+            border-radius: 3px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(99, 102, 241, 0.6);
+            border-radius: 3px;
+            transition: all 0.2s ease;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: rgba(99, 102, 241, 0.8);
+            box-shadow: 0 0 6px rgba(99, 102, 241, 0.3);
+        }
+
+        .dark .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .dark .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(99, 102, 241, 0.6);
+        }
+
+        .dark .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: rgba(99, 102, 241, 0.8);
+            box-shadow: 0 0 6px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Message animations */
+        @keyframes slideIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px) scale(0.95);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+
+            50% {
+                opacity: 0.5;
+                transform: scale(1.02);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .animate-slideIn {
+            animation: slideIn 0.6s ease-out;
+        }
+
+        .animate-fadeInScale {
+            animation: fadeInScale 0.8s ease-out;
+        }
+
+        /* Enhanced animation for AI responses */
+        .ai-response {
+            animation: fadeInScale 1s ease-out;
+        }
+    </style>
+
+    <!-- Prevent theme flash by applying dark mode immediately if system prefers it -->
+    <script>
+        (function () {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.classList.add('dark');
+            }
+        })();
+    </script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+</body>
+
+</html>
