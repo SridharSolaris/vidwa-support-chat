@@ -18,6 +18,7 @@ A modern, responsive AI-powered customer support chat application built with the
 ## Tech Stack
 
 ### Frontend
+
 - **React 18**: Modern React with hooks and concurrent features
 - **Vite**: Fast build tool and development server
 - **React Router**: Client-side routing and navigation
@@ -26,6 +27,7 @@ A modern, responsive AI-powered customer support chat application built with the
 - **React Icons**: Comprehensive icon library
 
 ### Backend
+
 - **Node.js**: JavaScript runtime environment
 - **Express.js**: Fast, unopinionated web framework
 - **MongoDB**: NoSQL database for data persistence
@@ -33,6 +35,7 @@ A modern, responsive AI-powered customer support chat application built with the
 - **CORS**: Cross-origin resource sharing
 
 ### AI & Processing
+
 - **Azure OpenAI**: GPT-3.5/GPT-4 integration
 - **pdf-parse**: PDF document processing
 
@@ -97,17 +100,20 @@ The application will be available at `http://localhost:5173`.
 ## API Endpoints
 
 ### Chat Routes
+
 - `POST /api/chat`: Send a message to the chat bot
 - `GET /api/chat/conversations`: Get all conversations
 - `GET /api/chat/:id`: Retrieve a conversation by its ID
 - `DELETE /api/chat/conversation/:id`: Delete a specific conversation
 
 ### Upload Routes
+
 - `POST /api/upload/faq`: Upload FAQ documents for processing
 
 ## 🚀 Deployment
 
 ### Prerequisites for Deployment
+
 - GitHub account
 - MongoDB Atlas account (for cloud database)
 - Azure OpenAI API access
@@ -116,12 +122,14 @@ The application will be available at `http://localhost:5173`.
 ### Frontend Deployment (Vercel/Netlify)
 
 1. **Build the client**:
+
    ```bash
    cd client
    npm run build
    ```
 
 2. **Deploy to Vercel**:
+
    - Connect your GitHub repository to Vercel
    - Set build command: `cd client && npm run build`
    - Set output directory: `client/dist`
@@ -134,6 +142,7 @@ The application will be available at `http://localhost:5173`.
 ### Backend Deployment (Railway/Heroku)
 
 1. **Railway Deployment**:
+
    - Connect your GitHub repository to Railway
    - Set root directory: `server`
    - Railway will automatically detect the Node.js application
@@ -151,6 +160,7 @@ The application will be available at `http://localhost:5173`.
 Create these environment variables in your deployment platform:
 
 **Server Environment Variables:**
+
 ```env
 PORT=5000
 MONGO_URI=your_mongodb_atlas_connection_string
@@ -161,6 +171,7 @@ NODE_ENV=production
 ```
 
 **Client Environment Variables (if needed):**
+
 ```env
 VITE_API_URL=your_backend_api_url
 ```
@@ -214,11 +225,13 @@ Client Chat/
 ## 🎨 Customization
 
 ### Themes
+
 - Automatic dark/light theme detection based on system preferences
 - Manual theme toggle with smooth transitions
 - Customizable in `client/src/index.css` and `client/tailwind.config.js`
 
 ### Styling
+
 - Tailwind CSS utility classes for rapid development
 - Custom fonts: Audiowide for headers, Ubuntu for body text
 - Responsive design with mobile-first approach
