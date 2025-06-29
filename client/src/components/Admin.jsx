@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { FaUpload, FaFileAlt, FaCog } from 'react-icons/fa';
 
+// Get API URL from environment variable or default to localhost
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
 const Admin = () => {
     const [file, setFile] = useState(null);
     const [uploading, setUploading] = useState(false);
@@ -20,7 +23,7 @@ const Admin = () => {
         formData.append('file', file);
 
         try {
-            await axios.post('http://localhost:5000/api/upload/faq', formData, {
+            await axios.post(`${API_BASE_URL}/api/upload/faq`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

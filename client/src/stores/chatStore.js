@@ -1,6 +1,9 @@
 import { makeAutoObservable } from "mobx";
 import axios from "axios";
 
+// Get API URL from environment variable or default to localhost
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
 class ChatStore {
   messages = [];
   conversationId = null;
@@ -28,7 +31,7 @@ class ChatStore {
     console.log("Sending message, current messages:", this.messages);
 
     try {
-      const response = await axios.post("http://localhost:5000/api/chat", {
+      const response = await axios.post(`${API_BASE_URL}/api/chat`, {
         message: text,
         conversationId: this.conversationId,
       });
@@ -44,7 +47,7 @@ class ChatStore {
   async fetchHistory(conversationId) {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/chat/${conversationId}`
+        `${API_BASE_URL}/api/chat/${conversationId}`
       );
       this.messages = response.data.messages;
       this.conversationId = response.data._id;
@@ -71,7 +74,7 @@ class ChatStore {
 
     try {
       console.log("Fetching conversations...");
-      const response = await axios.get("http://localhost:5000/api/chat");
+      const response = await axios.get(`${API_BASE_URL}/api/chat`);
       this.conversations = response.data;
       this.conversationsLoaded = true;
       this.lastFetchTime = now;
@@ -97,7 +100,7 @@ class ChatStore {
 
   async deleteConversation(conversationId) {
     try {
-      await axios.delete(`http://localhost:5000/api/chat/${conversationId}`);
+      await axios.delete(`${API_BASE_URL}/api/chat/${conversationId}`);
       // Remove conversation from local state
       this.conversations = this.conversations.filter(
         (convo) => convo._id !== conversationId
