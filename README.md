@@ -50,7 +50,7 @@ A modern, responsive AI-powered customer support chat application built with the
 1.  **Clone the repository:**
 
     ```bash
-    git clone <repository-url>
+    git clone https://github.com/your-username/your-repository-name.git
     cd client-chat
     ```
 
@@ -70,13 +70,19 @@ A modern, responsive AI-powered customer support chat application built with the
 
 4.  **Configure environment variables:**
 
-    Create a `.env` file in the `server` directory and add the following:
+    Create a `.env` file in the `server` directory:
 
+    ```env
+    MONGO_URI=your_mongodb_connection_string
+    AZURE_OPENAI_ENDPOINT=your_azure_openai_endpoint
+    AZURE_OPENAI_KEY=your_azure_openai_api_key
+    AZURE_OPENAI_DEPLOYMENT=your_azure_openai_deployment_name
     ```
-    MONGO_URI=<your_mongodb_connection_string>
-    AZURE_OPENAI_ENDPOINT=<your_azure_openai_endpoint>
-    AZURE_OPENAI_KEY=<your_azure_openai_api_key>
-    AZURE_OPENAI_DEPLOYMENT=<your_azure_openai_deployment_name>
+
+    Create a `.env` file in the `client` directory:
+
+    ```env
+    VITE_API_URL=http://localhost:5000
     ```
 
 ## Running the Application
@@ -112,76 +118,67 @@ The application will be available at `http://localhost:5173`.
 
 ## 🚀 Deployment
 
+This project is configured for deployment with **Vercel** (frontend) and **Railway** (backend).
+
 ### Prerequisites for Deployment
 
-- GitHub account
+- GitHub account with your repository
 - MongoDB Atlas account (for cloud database)
 - Azure OpenAI API access
-- Deployment platform account (Vercel, Railway, Heroku, etc.)
+- Vercel account (for frontend)
+- Railway account (for backend)
 
-### Frontend Deployment (Vercel/Netlify)
+### Frontend Deployment (Vercel)
 
-1. **Build the client**:
+1. **Connect to Vercel**:
+   - Go to [vercel.com](https://vercel.com) and sign in with GitHub
+   - Import your repository
+   - Set the **Root Directory** to `client`
+   - Vercel will automatically detect it's a Vite project
 
-   ```bash
-   cd client
-   npm run build
+2. **Configure Environment Variables in Vercel**:
+   ```env
+   VITE_API_URL=your_railway_backend_url
    ```
 
-2. **Deploy to Vercel**:
+3. **Deploy**: Vercel will automatically build and deploy your frontend
 
-   - Connect your GitHub repository to Vercel
-   - Set build command: `cd client && npm run build`
-   - Set output directory: `client/dist`
+### Backend Deployment (Railway)
 
-3. **Deploy to Netlify**:
-   - Connect your GitHub repository to Netlify
-   - Set build command: `cd client && npm run build`
-   - Set publish directory: `client/dist`
-
-### Backend Deployment (Railway/Heroku)
-
-1. **Railway Deployment**:
-
-   - Connect your GitHub repository to Railway
-   - Set root directory: `server`
+1. **Connect to Railway**:
+   - Go to [railway.app](https://railway.app) and sign in with GitHub
+   - Create a new project and connect your repository
+   - Set the **Root Directory** to `server`
    - Railway will automatically detect the Node.js application
-   - Set environment variables in Railway dashboard
 
-2. **Heroku Deployment**:
-   - Install Heroku CLI
-   - Create a new Heroku app
-   - Set buildpacks for Node.js
-   - Configure environment variables
-   - Deploy using Git
+2. **Configure Environment Variables in Railway**:
+   ```env
+   PORT=5000
+   MONGO_URI=your_mongodb_atlas_connection_string
+   AZURE_OPENAI_ENDPOINT=your_azure_openai_endpoint
+   AZURE_OPENAI_KEY=your_azure_openai_api_key
+   AZURE_OPENAI_DEPLOYMENT=your_azure_openai_deployment_name
+   NODE_ENV=production
+   ```
 
-### Environment Variables
+3. **Deploy**: Railway will automatically build and deploy your backend
 
-Create these environment variables in your deployment platform:
+### Environment Variables Setup
 
-**Server Environment Variables:**
-
+**Backend (.env in server directory):**
 ```env
 PORT=5000
-MONGO_URI=your_mongodb_atlas_connection_string
-AZURE_OPENAI_ENDPOINT=your_azure_openai_endpoint
+MONGO_URI=mongodb+srv://username:password@cluster.mongodb.net/database
+AZURE_OPENAI_ENDPOINT=https://your-resource.openai.azure.com/
 AZURE_OPENAI_KEY=your_azure_openai_api_key
-AZURE_OPENAI_DEPLOYMENT=your_azure_openai_deployment_name
+AZURE_OPENAI_DEPLOYMENT=your_deployment_name
 NODE_ENV=production
 ```
 
-**Client Environment Variables (if needed):**
-
+**Frontend (.env in client directory):**
 ```env
-VITE_API_URL=your_backend_api_url
+VITE_API_URL=https://your-backend-url.railway.app
 ```
-
-### Full-Stack Deployment Options
-
-1. **Railway**: Best for full-stack applications with automatic deployments
-2. **Vercel + Railway**: Frontend on Vercel, Backend on Railway
-3. **Netlify + Heroku**: Frontend on Netlify, Backend on Heroku
-4. **DigitalOcean App Platform**: Single platform for both frontend and backend
 
 ## 📁 Project Structure
 
@@ -210,7 +207,6 @@ Client Chat/
 │   │   └── uploadController.js
 │   ├── models/
 │   │   ├── conversation.js
-│   │   ├── message.js
 │   │   └── faq.js
 │   ├── routes/
 │   │   ├── chat.js
