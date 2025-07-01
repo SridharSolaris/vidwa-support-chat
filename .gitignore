@@ -4,7 +4,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-lerna-debug.log*
 
 # Runtime data
 pids
@@ -12,104 +11,27 @@ pids
 *.seed
 *.pid.lock
 
-# Coverage directory used by tools like istanbul
+# Coverage directory
 coverage/
 *.lcov
-
-# nyc test coverage
 .nyc_output
 
-# Grunt intermediate storage (https://gruntjs.com/creating-plugins#storing-task-files)
-.grunt
+# Build outputs
+dist/
+dist-ssr/
+build/
+.next
+out
+.nuxt
+.cache
+.parcel-cache
 
-# Bower dependency directory (https://bower.io/)
-bower_components
-
-# node-waf configuration
-.lock-wscript
-
-# Compiled binary addons (https://nodejs.org/api/addons.html)
-build/Release
-
-# Dependency directories
-jspm_packages/
-
-# TypeScript cache
-*.tsbuildinfo
-
-# Optional npm cache directory
-.npm
-
-# Optional eslint cache
-.eslintcache
-
-# Optional stylelint cache
-.stylelintcache
-
-# Microbundle cache
-.rpt2_cache/
-.rts2_cache_cjs/
-.rts2_cache_es/
-.rts2_cache_umd/
-
-# Optional REPL history
-.node_repl_history
-
-# Output of 'npm pack'
-*.tgz
-
-# Yarn Integrity file
-.yarn-integrity
-
-# dotenv environment variables file
+# Environment variables
 .env
 .env.development.local
 .env.test.local
 .env.production.local
 .env.local
-
-# parcel-bundler cache (https://parceljs.org/)
-.cache
-.parcel-cache
-
-# Next.js build output
-.next
-out
-
-# Nuxt.js build / generate output
-.nuxt
-dist
-
-# Gatsby files
-.cache/
-public
-
-# Vite build output
-dist/
-dist-ssr/
-
-# Rollup.js default build output
-dist/
-
-# Webpack build output
-build/
-
-# Snowpack dependency directory (https://snowpack.dev/)
-web_modules/
-
-# Storybook build outputs
-.out
-.storybook-out
-storybook-static
-
-# Temporary folders
-tmp/
-temp/
-
-# Runtime data
-*.log
-logs
-*.log.*
 
 # Editor directories and files
 .vscode/
@@ -127,7 +49,7 @@ Thumbs.db
 ehthumbs.db
 Desktop.ini
 
-# File uploads and user generated content
+# File uploads
 uploads/*
 !uploads/.gitkeep
 
@@ -135,14 +57,7 @@ uploads/*
 *.db
 *.sqlite
 *.sqlite3
-
-# MongoDB
 data/
-
-# Configuration files with sensitive data
-config/production.js
-config/development.js
-config/local.js
 
 # SSL certificates
 *.pem
@@ -160,57 +75,12 @@ config/local.js
 *.rar
 *.7z
 
-# IDE and Editor files
-*.swp
-*.swo
-*~
-.project
-.settings/
-.vscode/settings.json
-
-# Test coverage
-coverage/
-.coverage
-
-# Serverless directories
-.serverless
-
-# FuseBox cache
-.fusebox/
-
-# DynamoDB Local files
-.dynamodb/
-
-# TernJS port file
-.tern-port
-
-# Stores VSCode versions used for testing VSCode extensions
-.vscode-test
-
-# yarn v2
-.yarn/cache
-.yarn/unplugged
-.yarn/build-state.yml
-.yarn/install-state.gz
-.pnp.*
+# Logs
+*.log
+logs/
 
 # ESLint cache
 .eslintcache
 
 # Optional stylelint cache
 .stylelintcache
-
-# Microbundle cache
-.rpt2_cache/
-.rts2_cache_cjs/
-.rts2_cache_es/
-.rts2_cache_umd/
-
-# Optional REPL history
-.node_repl_history
-
-# Output of 'npm pack'
-*.tgz
-
-# Yarn Integrity file
-.yarn-integrity
